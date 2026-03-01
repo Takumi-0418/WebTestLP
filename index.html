@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXASPARK - 会社紹介</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ナビゲーション */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 1px 12px rgba(0,0,0,0.08);
+    }
+
+    nav .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a56db;
+      letter-spacing: -0.5px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: #555;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover {
+      color: #1a56db;
+    }
+
+    /* ヒーロー */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a56db 0%, #0e3fa0 50%, #072a6e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      color: #fff;
+    }
+
+    #hero .hero-inner {
+      max-width: 720px;
+    }
+
+    #hero .tagline {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: #a8c7ff;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    #hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 2.5rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #hero .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #1a56db;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* アバウト */
+    #about {
+      padding: 6rem 2rem;
+      background: #f9fafb;
+    }
+
+    #about .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #1a56db;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #111;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-lead {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 620px;
+      margin-bottom: 3.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border: 1px solid #e8ecf0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #1a1a1a;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    /* コンタクト */
+    #contact {
+      padding: 6rem 2rem;
+      background: #fff;
+    }
+
+    #contact .section-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #contact .section-lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #333;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #fafafa;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: #1a56db;
+      box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.12);
+      background: #fff;
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .btn-submit {
+      background: #1a56db;
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      align-self: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: #1447c0;
+      transform: translateY(-2px);
+    }
+
+    /* フッター */
+    footer {
+      background: #111;
+      color: #888;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: #ccc;
+    }
+
+    @media (max-width: 560px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="css/news.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo">NexaSpark</div>
+    <ul>
+      <li><a href="#hero">ホーム</a></li>
+      <li><a href="#about">私たちについて</a></li>
+      <li><a href="#news">ニュース</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- ヒーローセクション -->
+  <section id="hero">
+    <div class="hero-inner">
+      <span class="tagline">Innovation &amp; Technology</span>
+      <h1>未来をともに、<br>創造しよう。</h1>
+      <p>NexaSparkは、最先端のテクノロジーとクリエイティブな発想で、あなたのビジネスを次のステージへ導きます。</p>
+      <div class="cta-group">
+        <a href="#about" class="btn btn-primary">私たちについて</a>
+        <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- アバウトセクション -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">私たちが大切にしていること</h2>
+      <p class="section-lead">
+        2018年の創業以来、私たちは「技術で人の可能性を広げる」という理念のもと、革新的なソリューションを届け続けています。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">&#x1F4A1;</div>
+          <h3>イノベーション</h3>
+          <p>常に最新技術を探求し、業界の常識を超えたプロダクトとサービスを生み出します。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#x1F91D;</div>
+          <h3>パートナーシップ</h3>
+          <p>クライアントとの深い信頼関係を築き、長期的な成長を共に目指します。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#x1F30F;</div>
+          <h3>サステナビリティ</h3>
+          <p>環境と社会に配慮したビジネスを推進し、次世代に誇れる企業を目指します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ニュースセクション -->
+  <section id="news" class="section sd appear">
+    <div class="section-inner sd appear">
+      <h2 class="text sd appear">News</h2>
+      <p class="text sd appear">お知らせ</p>
+      <div id="news-list" class="news-list">
+        <p class="news-loading">読み込み中...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンタクトセクション -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-lead">プロジェクトのご相談や、ご質問はお気軽にどうぞ。通常2営業日以内にご返信いたします。</p>
+      <form>
+        <div class="form-row">
+          <input type="text" placeholder="お名前" required>
+          <input type="email" placeholder="メールアドレス" required>
+        </div>
+        <input type="text" placeholder="件名">
+        <textarea placeholder="メッセージ"></textarea>
+        <button type="submit" class="btn-submit">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 <span>NexaSpark Inc.</span> All rights reserved.</p>
+  </footer>
+
+  <script>
+    (async () => {
+      const container = document.getElementById('news-list');
+      const LIMIT = 5;
+      try {
+        const res = await fetch(`/api/news?limit=${LIMIT}&offset=0`);
+        if (!res.ok) throw new Error(res.statusText);
+        const { contents } = await res.json();
+        if (contents.length === 0) {
+          container.innerHTML = '<p>現在お知らせはありません。</p>';
+          return;
+        }
+        container.innerHTML = contents.map(item => {
+          const date = new Date(item.publishedAt).toLocaleDateString('ja-JP');
+          return `
+            <article class="news-item">
+              <time class="news-date" datetime="${item.publishedAt}">${date}</time>
+              <h3 class="news-title">${item.title}</h3>
+              <div class="news-body">${item.content}</div>
+            </article>`;
+        }).join('');
+      } catch (e) {
+        container.innerHTML = '<p>お知らせの読み込みに失敗しました。</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

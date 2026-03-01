@@ -1,0 +1,93 @@
+/* ===== News Section ===== */
+#news {
+  padding: 6rem 2rem;
+  background: #f9fafb;
+}
+
+#news .section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#news h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+#news > .section-inner > p {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1a56db;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+/* ===== News List ===== */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ===== News Item (card) ===== */
+.news-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e8ecf0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Date ===== */
+.news-date {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #1a56db;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Title ===== */
+.news-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* ===== Body ===== */
+.news-body {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+.news-body p {
+  margin: 0;
+}
+
+/* ===== Loading ===== */
+.news-loading {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  padding: 2rem 0;
+}
+
+@media (max-width: 560px) {
+  .news-item {
+    padding: 1.25rem 1.25rem;
+  }
+}
